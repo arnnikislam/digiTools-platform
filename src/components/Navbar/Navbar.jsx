@@ -1,4 +1,5 @@
 import { BsCart } from "react-icons/bs";
+import NavLink from "./NavLink";
 
 const Navbar = () => {
   // navbar link items
@@ -10,11 +11,7 @@ const Navbar = () => {
     { id: 5, label: "FAQ", href: "#faq" },
   ];
   const link = navLinks.map((link) => (
-    <li>
-      <a href={link.href} className="text-[16px]">
-        {link.label}
-      </a>
-    </li>
+    <NavLink key={link.id} link={link}></NavLink>
   ));
   return (
     <nav className="container mx-auto sticky top-0 z-50">
