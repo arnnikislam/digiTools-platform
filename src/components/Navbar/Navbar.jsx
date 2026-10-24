@@ -17,7 +17,7 @@ const Navbar = () => {
     </li>
   ));
   return (
-    <nav className="container mx-auto">
+    <nav className="container mx-auto sticky top-0 z-50">
       <div className="navbar bg-base-100 shadow-sm">
         <div className="navbar-start">
           <div className="dropdown">
@@ -46,7 +46,7 @@ const Navbar = () => {
               {link}
             </ul>
           </div>
-          <a className="font-bold text-xl md:text-2xl text-[#4f39f6]">
+          <a className="font-bold text-xl md:text-2xl text-transparent bg-clip-text bg-linear-to-r from-[#4f39f6] to-[#9514fa]">
             DigiTools
           </a>
         </div>
@@ -58,7 +58,7 @@ const Navbar = () => {
             <BsCart />
           </a>
           <a href="/">Login</a>
-          <button className="btn hidden md:block bg-[#4f39f6] rounded-[99px] text-white">
+          <button className="hidden md:block btn border-none text-white bg-linear-to-r from-[#4f39f6] to-[#9514fa] rounded-full">
             Get Started
           </button>
         </div>
