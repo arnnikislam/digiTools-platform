@@ -1,7 +1,7 @@
 import "./App.css";
-import Banner from "./components/Banner/Banner";
-import NavBar from "./components/Navbar/NavBar";
-import StatsList from "./components/Stats/StatsList";
+import Banner from "./components/banner/Banner";
+import NavBar from "./components/navbar/NavBar";
+import StatsList from "./components/stats/StatList";
 
 function App() {
   return (
