@@ -5,8 +5,11 @@ import BtnToggling from "./BtnToggling";
 
 const MainSection = ({ productsDataRes }) => {
   const productsData = use(productsDataRes);
+  // for tab btn toggling
   const [activeBtn, setActiveBtn] = useState("Products");
   const tabs = ["Products", "Cart"];
+  // for adding product to cart
+  const [cartProducts, setCartProducts] = useState([]);
   return (
     <div className="container mx-auto">
       <div className="flex flex-col text-center justify-center items-center gap-4 my-8">
@@ -17,6 +20,7 @@ const MainSection = ({ productsDataRes }) => {
           Choose from our curated collection of premium digital products
           designed to boost your productivity and creativity.
         </p>
+        {/* for btn toggling */}
         <div className="flex gap-2 text-black">
           {tabs.map((tab, index) => (
             <BtnToggling
@@ -24,6 +28,7 @@ const MainSection = ({ productsDataRes }) => {
               tab={tab}
               activeBtn={activeBtn}
               setActiveBtn={setActiveBtn}
+              cartProducts={cartProducts}
             ></BtnToggling>
           ))}
         </div>
@@ -32,9 +37,13 @@ const MainSection = ({ productsDataRes }) => {
       {/* products cards */}
       <div>
         {activeBtn === "Products" ? (
-          <ProductList productsData={productsData}></ProductList>
+          <ProductList
+            productsData={productsData}
+            cartProducts={cartProducts}
+            setCartProducts={setCartProducts}
+          ></ProductList>
         ) : (
-          <CartList></CartList>
+          <CartList cartProducts={cartProducts}></CartList>
         )}
       </div>
     </div>

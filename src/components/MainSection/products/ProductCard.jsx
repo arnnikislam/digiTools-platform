@@ -1,6 +1,15 @@
 import ProductCardFeature from "./ProductCardFeature";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, cartProducts, setCartProducts }) => {
+  // is product already added to cart
+  const isBuy = cartProducts.some(
+    (cartProduct) => cartProduct.id === product.id,
+  );
+  const handleBuyProduct = () => {
+    // new product to add in cart
+    const newAddedProduct = [...cartProducts, product]
+    setCartProducts(newAddedProduct)
+  };
   return (
     <div className="card w-full bg-base-100 shadow-sm">
       <div className="card-body relative">
@@ -33,8 +42,11 @@ const ProductCard = ({ product }) => {
           ))}
         </ul>
         <div className="mt-6">
-          <button className="btn btn-block border-none text-white bg-linear-to-r from-[#4f39f6] to-[#9514fa] rounded-full">
-            Buy Now
+          <button
+            onClick={handleBuyProduct}
+            className={`btn btn-block border-none rounded-full ${isBuy ? "btn-disabled text-[#627382]" : "text-white bg-linear-to-r from-[#4f39f6] to-[#9514fa]"}`}
+          >
+            {isBuy ? "Added to cart" : "Buy Now"}
           </button>
         </div>
       </div>
