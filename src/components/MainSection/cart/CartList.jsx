@@ -1,7 +1,11 @@
 import CartItem from "./CartItem";
 import EmptyCartState from "./EmptyCartState";
 
-const CartList = ({ cartProducts }) => {
+const CartList = ({ cartProducts, setCartProducts }) => {
+  // clear all products if click on proceed btn
+  const handleProceedCheckout = () => {
+    setCartProducts([]);
+  };
   // calculating total prices
   const totalPrice = cartProducts.reduce((sum, item) => sum + item.price, 0);
   return cartProducts.length !== 0 ? (
@@ -11,7 +15,12 @@ const CartList = ({ cartProducts }) => {
       {/* cart items */}
       <div>
         {cartProducts.map((cartItem) => (
-          <CartItem key={cartItem.id} cartItem={cartItem}></CartItem>
+          <CartItem
+            key={cartItem.id}
+            cartItem={cartItem}
+            cartProducts={cartProducts}
+            setCartProducts={setCartProducts}
+          ></CartItem>
         ))}
       </div>
       <div className="flex justify-between px-2 md:px-4">
@@ -19,7 +28,10 @@ const CartList = ({ cartProducts }) => {
         <p className="font-bold text-xl italic">${totalPrice}</p>
       </div>
       <div className="px-4 mt-5">
-        <button className="btn btn-block border-none rounded-full text-white bg-linear-to-r from-[#4f39f6] to-[#9514fa]">
+        <button
+          onClick={handleProceedCheckout}
+          className="btn btn-block border-none rounded-full text-white bg-linear-to-r from-[#4f39f6] to-[#9514fa]"
+        >
           Proceed to Checkout
         </button>
       </div>

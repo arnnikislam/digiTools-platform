@@ -1,5 +1,11 @@
-const CartItem = ({ cartItem }) => {
-  
+const CartItem = ({ cartItem, cartProducts, setCartProducts }) => {
+  const handleRemoveProduct = () => {
+    const newCartItems = cartProducts.filter(
+      (cartProduct) => cartProduct.id !== cartItem.id,
+    );
+
+    setCartProducts(newCartItems);
+  };
   return (
     <div className="flex item bg-center justify-between bg-[#F9FAFC] rounded-2xl p-3 mb-4">
       <div className="flex gap-2">
@@ -15,7 +21,9 @@ const CartItem = ({ cartItem }) => {
           <p className="text-[#627382] text-sm">${cartItem.price} </p>
         </div>
       </div>
-      <button className="text-red-500 font-bold">Remove</button>
+      <button onClick={handleRemoveProduct} className="text-red-500 font-bold">
+        Remove
+      </button>
     </div>
   );
 };

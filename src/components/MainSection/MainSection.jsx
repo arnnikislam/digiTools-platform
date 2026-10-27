@@ -42,7 +42,10 @@ const MainSection = ({ productsDataRes, cartProducts, setCartProducts }) => {
             setCartProducts={setCartProducts}
           ></ProductList>
         ) : (
-          <CartList cartProducts={cartProducts}></CartList>
+          <CartList
+            cartProducts={cartProducts}
+            setCartProducts={setCartProducts}
+          ></CartList>
         )}
       </div>
     </div>
