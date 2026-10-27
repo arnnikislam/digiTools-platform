@@ -4,8 +4,9 @@ import NavBar from "./components/navbar/NavBar";
 import StatList from "./components/stats/StatList";
 import MainSection from "./components/MainSection/MainSection";
 import { Suspense, useState } from "react";
-import StepList from "./components/Steps/StepList";
-import PricingList from "./components/Pricing/PricingList";
+import StepList from "./components/steps/StepList";
+import PricingList from "./components/pricing/PricingList";
+import Footer from "./components/footer/Footer";
 
 // data fetching
 const productsDataFetch = async () => {
@@ -39,6 +40,7 @@ function App() {
 
       <StepList></StepList>
       <PricingList></PricingList>
+      <Footer></Footer>
     </>
   );
 }

@@ -54,7 +54,7 @@ const PricingList = () => {
   ];
 
   return (
-    <div className="py-8" container mx-auto>
+    <div className="py-8 container mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch w-[92%] md:[80%] mx-auto">
         {plans.map((plan) => (
           <PricingCard plan={plan} key={plan.id}></PricingCard>
