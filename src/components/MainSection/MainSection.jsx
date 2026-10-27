@@ -3,13 +3,12 @@ import ProductList from "./products/ProductList";
 import CartList from "./cart/CartList";
 import BtnToggling from "./BtnToggling";
 
-const MainSection = ({ productsDataRes }) => {
+const MainSection = ({ productsDataRes, cartProducts, setCartProducts }) => {
   const productsData = use(productsDataRes);
   // for tab btn toggling
   const [activeBtn, setActiveBtn] = useState("Products");
   const tabs = ["Products", "Cart"];
-  // for adding product to cart
-  const [cartProducts, setCartProducts] = useState([]);
+
   return (
     <div className="container mx-auto">
       <div className="flex flex-col text-center justify-center items-center gap-4 my-8">

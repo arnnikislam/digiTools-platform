@@ -1,7 +1,6 @@
-import { BsCart } from "react-icons/bs";
 import NavLink from "./NavLink";
 
-const Navbar = () => {
+const Navbar = ({ cartProducts }) => {
   // navbar link items
   const navLinks = [
     { id: 1, label: "Products", href: "#products" },
@@ -51,9 +50,28 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 space-x-3">{link}</ul>
         </div>
         <div className="navbar-end space-x-3">
-          <a className="text-2xl">
-            <BsCart />
-          </a>
+          <div className="indicator">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              {" "}
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              />{" "}
+            </svg>
+            {cartProducts.length !== 0 && (
+              <span className="badge badge-sm indicator-item text-[#4f39f6] font-bold">
+                {cartProducts.length}
+              </span>
+            )}
+          </div>
           <a href="/">Login</a>
           <button className="hidden md:block btn border-none text-white bg-linear-to-r from-[#4f39f6] to-[#9514fa] rounded-full">
             Get Started

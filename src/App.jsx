@@ -3,19 +3,21 @@ import Banner from "./components/banner/Banner";
 import NavBar from "./components/navbar/NavBar";
 import StatList from "./components/stats/StatList";
 import MainSection from "./components/MainSection/MainSection";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 
 // data fetching
 const productsDataFetch = async () => {
   const res = await fetch("productsData.json");
   return res.json();
 };
+const productsDataRes = productsDataFetch();
 
 function App() {
-  const productsDataRes = productsDataFetch();
+  // for adding product to cart
+  const [cartProducts, setCartProducts] = useState([]);
   return (
     <>
-      <NavBar></NavBar>
+      <NavBar cartProducts={cartProducts}></NavBar>
       <Banner></Banner>
       <StatList></StatList>
 
@@ -26,7 +28,11 @@ function App() {
           </div>
         }
       >
-        <MainSection productsDataRes={productsDataRes}></MainSection>
+        <MainSection
+          productsDataRes={productsDataRes}
+          cartProducts={cartProducts}
+          setCartProducts={setCartProducts}
+        ></MainSection>
       </Suspense>
     </>
   );
