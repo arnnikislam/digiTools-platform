@@ -4,6 +4,7 @@ import NavBar from "./components/navbar/NavBar";
 import StatList from "./components/stats/StatList";
 import MainSection from "./components/MainSection/MainSection";
 import { Suspense, useState } from "react";
+import StepList from "./components/Steps/StepList";
 
 // data fetching
 const productsDataFetch = async () => {
@@ -34,6 +35,8 @@ function App() {
           setCartProducts={setCartProducts}
         ></MainSection>
       </Suspense>
+
+      <StepList></StepList>
     </>
   );
 }
