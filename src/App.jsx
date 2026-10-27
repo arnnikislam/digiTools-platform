@@ -7,6 +7,7 @@ import { Suspense, useState } from "react";
 import StepList from "./components/steps/StepList";
 import PricingList from "./components/pricing/PricingList";
 import Footer from "./components/footer/Footer";
+import { ToastContainer } from "react-toastify";
 
 // data fetching
 const productsDataFetch = async () => {
@@ -41,6 +42,8 @@ function App() {
       <StepList></StepList>
       <PricingList></PricingList>
       <Footer></Footer>
+
+      <ToastContainer></ToastContainer>
     </>
   );
 }

@@ -1,9 +1,21 @@
+import { Bounce, toast } from "react-toastify";
+
 const CartItem = ({ cartItem, cartProducts, setCartProducts }) => {
   const handleRemoveProduct = () => {
+    toast.warn("Product removed from cart", {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
     const newCartItems = cartProducts.filter(
       (cartProduct) => cartProduct.id !== cartItem.id,
     );
-
     setCartProducts(newCartItems);
   };
   return (

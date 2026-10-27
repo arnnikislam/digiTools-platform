@@ -1,9 +1,21 @@
+import { Bounce, toast } from "react-toastify";
 import CartItem from "./CartItem";
 import EmptyCartState from "./EmptyCartState";
 
 const CartList = ({ cartProducts, setCartProducts }) => {
   // clear all products if click on proceed btn
   const handleProceedCheckout = () => {
+    toast.error("All products removed from cart.", {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
     setCartProducts([]);
   };
   // calculating total prices

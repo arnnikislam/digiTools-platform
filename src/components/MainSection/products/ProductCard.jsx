@@ -1,3 +1,4 @@
+import { Bounce, toast } from "react-toastify";
 import ProductCardFeature from "./ProductCardFeature";
 
 const ProductCard = ({ product, cartProducts, setCartProducts }) => {
@@ -7,8 +8,19 @@ const ProductCard = ({ product, cartProducts, setCartProducts }) => {
   );
   const handleBuyProduct = () => {
     // new product to add in cart
-    const newAddedProduct = [...cartProducts, product]
-    setCartProducts(newAddedProduct)
+    toast.success("Successfully added to cart.", {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
+    const newAddedProduct = [...cartProducts, product];
+    setCartProducts(newAddedProduct);
   };
   return (
     <div className="card w-full bg-base-100 shadow-sm">
