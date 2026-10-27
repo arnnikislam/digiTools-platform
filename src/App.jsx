@@ -5,6 +5,7 @@ import StatList from "./components/stats/StatList";
 import MainSection from "./components/MainSection/MainSection";
 import { Suspense, useState } from "react";
 import StepList from "./components/Steps/StepList";
+import PricingList from "./components/Pricing/PricingList";
 
 // data fetching
 const productsDataFetch = async () => {
@@ -37,6 +38,7 @@ function App() {
       </Suspense>
 
       <StepList></StepList>
+      <PricingList></PricingList>
     </>
   );
 }

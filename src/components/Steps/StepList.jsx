@@ -27,7 +27,7 @@ const StepList = () => {
     },
   ];
   return (
-    <div className="container mx-auto flex flex-col justify-center items-center mt-6">
+    <div className="container mx-auto flex flex-col justify-center items-center mt-6 bg-[#F9FAFC] py-8">
       <h2 className="text-xl md:text-4xl font-bold mb-2">
         Get Started in 3 Steps
       </h2>
